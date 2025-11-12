@@ -1,6 +1,19 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+@layer base {
+  html {
+    @apply scroll-smooth ;
+  }
+  body {
+    @apply bg-black scroll-smooth;
+  }
+  section {
+    scroll-margin-top: 180px;
+  }
+}
+
+
 @keyframes marquee {
     0% {
       transform: translateX(0%);

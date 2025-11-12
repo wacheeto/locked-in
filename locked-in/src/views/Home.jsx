@@ -1,13 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import bbCurl from '../assets/bbcurl.jpeg'
 import wtf from '../assets/wtf.webp'
 import coaching from '../assets/coaching.jpeg'
-import map from '../assets/map.png'
+import ReviewsGrid from '../components/ReviewsGrid.jsx'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 export default function Home() {
+    useEffect(() => {
+        AOS.init({
+          duration: 1000,     
+          once: true,       
+          offset: 100,      
+        });
+    }, []);
     return (
         <div className="flex justify-center w-screen flex-col h-auto bg-zinc-950 items-center">
             {/* hero */}
-            <div className=" relative flex w-screen h-[90vh]  items-center justify-center bg-[url(./assets/hero-header.jpg)] bg-no-repeat bg-center bg-cover">
+            <div data-aos="fade" className=" relative flex w-screen h-[90vh]  items-center justify-center bg-[url(./assets/hero-header.jpg)] bg-no-repeat bg-center bg-cover">
                 <div className="absolute inset-0 bg-black/60 h-full " />
                 <div className="relative z-10 flex flex-col items-center text-center px-4">
                     <span className="text-green-500 text-3xl md:text-5xl font-bold text-shadow-md text-center font-sans">
@@ -16,13 +26,13 @@ export default function Home() {
                     <span className='text-white drop-shadow-md text-sm w-[400px] md:text-lg mt-4 text-center md:w-[550px] font-regular font-sans text-shadow-md'>
                         Expert coaching & personalized programs will keep you motivated every step of the way.
                     </span>
-                    <button className="block px-4 py-2 mt-5 text-white no-underline -none focus:-none active:bg-green-900 bg-green-700 rounded-md transition duration-300 shadow-md">
+                    <button className="block px-4 py-2 mt-5 text-white no-underline active:bg-green-900 bg-green-700 rounded-md transition duration-300 shadow-md">
                         Start Free Trial!
                     </button>
                 </div>
             </div>
 
-            <div className="container gap-2 mt-10 p-4 bg-zinc-950 self-center items-center justify-center flex flex-col-reverse md:flex-row ">
+            <div data-aos="fade-up" className="container gap-2 mt-10 p-4 bg-zinc-950 self-center items-center justify-center flex flex-col-reverse md:flex-row ">
                 <div className="flex  p-4 grow w-full flex-col ">
                     <p className='font-bold text-3xl md:text-6xl text-white shadow-md'> <span className='text-green-600'>Built</span> for Strength, <br /> <span className='text-green-600'>Fueled</span> by Purpose.</p>
                     <span className='text-white mt-4 text-justify'>We’re more than workouts we’re a movement toward a stronger body, sharper mind, and unstoppable lifestyle. Every rep, every run, every drop of sweat is a step toward becoming your best self. Whether you’re just starting your journey or pushing past your limits, we’re here to guide, motivate, and move with you because fitness isn’t just a goal, it’s a way of life.
@@ -32,8 +42,8 @@ export default function Home() {
                     <img src={bbCurl}  alt="img-about " className='w-full h-auto object-contain rounded-lg' />
                 </div>
             </div>
-            <div className="container text-white  items-center justify-center mt-1 py-4 px-4 ">
-                <p className='font-bold text-2xl md:text-4xl text-white text-center my-4'>What we offer</p>
+            <section data-aos="fade-up" className="container text-white  items-center justify-center mt-1 py-4 px-4 " id='services'>
+                <p className='font-bold text-2xl md:text-4xl text-white text-center my-4'><span className='text-green-700'>What</span> we offer</p>
                 <div className=" items-center justify-center mt-1 bg-zinc-950 grid grid-cols-2 md:grid-cols-4 gap-3">
                     <div className=" bg-green-900 shadow-md h-[250px] w-fill rounded-md md:w-full p-2 flex items-center justify-center flex-col gap-2">
                         <i className="fa-solid fa-dumbbell text-white text-2xl"></i>
@@ -52,11 +62,11 @@ export default function Home() {
                         <span className="text-white font-medium">Progress Tracking</span>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div className="container -1 mt-1 p-4 bg-zinc-950 self-center gap-1 items-center justify-center flex flex-col md:flex-row ">
+            <div data-aos="fade-up" className="container -1 mt-1 p-4 bg-zinc-950 self-center gap-1 items-center justify-center flex flex-col md:flex-row ">
                 <div className="flex   grow w-full flex-col ">
-                    <img src={wtf}  alt="img-about " className='w-full h-auto object-contain rounded-lg' />
+                    <img src={wtf}  alt="img-about" className='w-full h-auto object-contain rounded-lg' />
                 </div>
                 <div className="flex  p-4 grow w-full flex-col ">
                     <p className='font-bold text-3xl md:text-5xl text-white'><span className='text-green-700'>Everything</span> You Need in One Fitness Destination</p>
@@ -99,7 +109,7 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className="container  items-center text-white justify-center mt-1 p-4 flex flex-col  ">
+            <section data-aos="fade-up" className="container  items-center text-white justify-center mt-1 p-4 flex flex-col" id='prices'>
                 <p className='text-center text-2xl md:text-5xl font-bold mb-3'>Our <span className='text-green-700'>Membership</span> Plans</p>
                 <span className='text-center'>
                     No hidden fees. No long-term contracts. Just affordable access to top-quality equipment, classes, and facilities.
@@ -210,9 +220,8 @@ export default function Home() {
                         </button>
                     </div>
                 </div>
-            </div>
-
-            <div className="container -1 mt-1 p-4 bg-zinc-950 self-center items-center justify-center gap-5 flex flex-col-reverse md:flex-row ">
+            </section>
+            <section data-aos="fade-up" className="container -1 mt-1 p-4 bg-zinc-950 self-center items-center justify-center gap-5 flex flex-col-reverse md:flex-row " id='faqs'>
                 <div className="flex py-4 grow w-full flex-col gap-2 items-center ">
                     <p className='font-bold text-2xl md:text-5xl text-white text-start'><span className='text-green-700'>Everything</span> You Need to Know</p>
                     <span className='text-white text-justify mb-4'>
@@ -267,38 +276,9 @@ export default function Home() {
                 <div className="flex   grow w-full flex-col  ">
                     <img src={coaching}  alt="img-about " className='w-full h-auto object-contain rounded-lg' />
                 </div>
-            </div>
-            <div className="container  items-center text-white justify-center mt-1 p-2 flex flex-col  ">
-                <div className=" items-center justify-center bg-zinc-950 grid grid-cols-1 md:grid-cols-2 gap-1 w-full ">
-                    <div className="  w-fill rounded-md md:w-full p-2 flex flex-col justify-center">
-                        <img src={map} alt="img-loc" className='w-full h-[270px] object-cover rounded-lg shadow-md' />
-                        <div className="grid grid-cols-2 md:grid-cols-2 gap-1 w-full mt-2 items-center justify-center bg-zinc-950">
-                            <p className='font-regular'><span className='text-green-500 font-bold'>Address:</span> 123 Fitness St., Quezon City</p>
-                            <p className='font-regular'><span className='text-green-500 font-bold'>Open Hours:</span> Mon–Sun, 24/7</p>
-                            <p className='font-regular'><span className='text-green-500 font-bold'>Phone:</span> +63 912 345 6789</p>
-                            <p className='font-regular'><span className='text-green-500 font-bold'>Email:</span> info@gymstudio.com</p>
-                        </div>
-                    </div>
-                    <div className=" w-fill rounded-md md:w-full  p-2 flex flex-col gap-3 h-[330px] ">
-                        <span className='text-white text-justify text-2xl md:text-5xl font-bold'>
-                            <span className='text-green-700'>Ready</span> to start?
-                        </span>
-                        <div className="flex gap-5 w-full ">
-                            <label className="input bg-zinc-800 border-zinc-600 border rounded-lg">
-                                <i className='fa-solid fa-person text-zinc-300'></i>
-                                <input type="text" className="grow text-md text-zinc-300  focus:outline-none" placeholder="Full Name" />
-                            </label>
-                            <label className="input bg-zinc-800 border-zinc-600 border rounded-lg">
-                                <i className='fa-solid fa-envelope text-zinc-300'></i>
-                                <input type="text" className="grow text-md text-zinc-300 " placeholder="Email Address" />
-                            </label>
-                        </div>
-                        <textarea placeholder="Message..." className="px-4  textarea text-md textarea-md w-full h-full bg-zinc-800 border-zinc-600 border rounded-lg text-zinc-300"></textarea>
-                        <button className="w-[250px] ms-auto px-4 py-2.5 mt-1 text-white no-underline -none focus:-none active:bg-green-900 bg-green-700 rounded-xl ">
-                            Get started
-                        </button>
-                    </div>
-                </div>
+            </section>
+            <div data-aos="fade" className="container  items-center text-white justify-center mt-1 p-2 flex flex-col py-10 ">
+                <ReviewsGrid/>
             </div>
         </div>
     )
